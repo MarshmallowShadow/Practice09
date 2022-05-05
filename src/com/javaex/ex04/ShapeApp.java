@@ -1,31 +1,26 @@
 package com.javaex.ex04;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ShapeApp {
-
-    public static void main(String[] args) {
-        List<Shape> sList = new ArrayList<Shape>(); 
-        
-        Shape r= new Rectangle( 5, 6 );
-        Shape t= new RectTriangle( 6, 2 );
-        sList.add(r);
-        sList.add(t);
-        
-        
-        for( int i=0; i<sList.size(); i++ ) {
-            
-            System.out.println( "area: " + sList.get(i).getArea() );
-            System.out.println( "perimeter: " + sList.get(i).getPerimeter() );
-            
-            if( sList.get(i) instanceof Resizeable ) {
-                ((Resizeable)sList.get(i)).resize( 0.5 );
-                
-                System.out.println( "new area: " + sList.get(i).getArea() );
-                System.out.println( "new perimeter: " + sList.get(i).getPerimeter() );
-            }
-        }
-        
-    }
+	public static void main(String[] args) {
+		Rectangle r01 = new Rectangle(5, 6);
+		RightTriangle t01 = new RightTriangle(6,2);
+		
+		ArrayList<Shape> sArray = new ArrayList<>();
+		sArray.add(r01);
+		sArray.add(t01);
+		
+		for(int i=0; i<sArray.size(); i++) {
+			System.out.println("Area: " + sArray.get(i).getArea());
+			System.out.println("Perimeter: " + sArray.get(i).getPerimeter());
+			
+			if(sArray.get(i) instanceof Resizeable) {
+				((Resizeable)sArray.get(i)).resize(0.5);
+				System.out.println("New Area: " + sArray.get(i).getArea());
+				System.out.println("New Perimeter: " + sArray.get(i).getPerimeter());
+			}
+		}
+		
+		
+	}
 }
